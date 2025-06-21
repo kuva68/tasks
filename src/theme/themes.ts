@@ -1,4 +1,4 @@
-import {isIOS} from '../utils';
+import { isIOS } from '../utils';
 
 export const palette = {
   primary: '#CD2414',
@@ -21,6 +21,7 @@ export const palette = {
   halfContrast: '#00000060',
   green: '#009821CC',
   danger: '#BE2C4B',
+  danger30: '#BE2C4B30',
   blue: '#1D7CCC',
   yellow: '#FFC080',
   bgBlack: '#121212',

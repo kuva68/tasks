@@ -64,7 +64,7 @@ const TaskCard: React.FC<TaskCardProps> = ({ item }) => {
         return theme.colors.green;
     }
   };
-
+  const isDeadLineCome = dayjs(item.deadline).isBefore(dayjs(), 'day');
   return (
     <TouchableOpacity disabled style={[styles.card]}>
       <View style={styles.topConteiner}>
@@ -130,6 +130,7 @@ const TaskCard: React.FC<TaskCardProps> = ({ item }) => {
             style={styles.fieldText}
           />
           <TextField
+            isDeadLine={isDeadLineCome}
             textStyle={{
               ...styles.price,
               color: getPriorityColor(item.priority),

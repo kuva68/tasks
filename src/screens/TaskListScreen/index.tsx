@@ -10,7 +10,7 @@ import Header from '../../components/Header';
 import CategoryModal from '../../components/CategoryModal';
 import MainLayout from '../../components/MainLayout';
 import { FilterValues } from '../../types/interfaces';
-import { useFetchTasksQuery } from '../../store/tasks/tasksApi';
+import { useSubscribeTasksQuery } from '../../store/tasks/tasksApi';
 import { theme } from '../../theme/themes';
 import {
   selectFilter,
@@ -26,9 +26,7 @@ import { makeFilteredSortPaginatedArr } from '../../utils';
 export const TaskListScreen: React.FC = () => {
   const dispatch = useDispatch();
   const navigation = useNavigation();
-  const { data: tasks = [], isLoading } = useFetchTasksQuery(undefined, {
-    refetchOnMountOrArgChange: true,
-  });
+  const { data: tasks = [], isLoading } = useSubscribeTasksQuery();
   const [page, setPage] = useState(1);
   const [sortModeModalVisible, setSortModeModalVisible] = useState(false);
   const [filterVisible, setFilterVisible] = useState(false);

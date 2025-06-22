@@ -7,6 +7,7 @@ import {
   Alert,
   Platform,
   ActivityIndicator,
+  AppState,
 } from 'react-native';
 import storage from '@react-native-firebase/storage';
 import MainLayout from '../../components/MainLayout';
@@ -31,6 +32,7 @@ import { theme } from '../../theme/themes';
 import { launchImageLibrary } from 'react-native-image-picker';
 import { requestCameraPermission } from '../../services/permission';
 import Animated, { FadeIn, FadeOut } from 'react-native-reanimated';
+import { MMKVStorage } from '../../../App';
 
 export const EditTaskScreen: React.FC = () => {
   const navigation = useNavigation();
@@ -39,9 +41,30 @@ export const EditTaskScreen: React.FC = () => {
   const [addTask] = useAddTaskMutation();
   const [isLoadig, setIsLoading] = useState(false);
   const activeTask = useSelector(selectActiveTask);
+
+  useEffect(() => {
+    const appStateInteractor = (nextAppState: any) => {
+      if (nextAppState.match(/inactive|background/)) {
+        MMKVStorage.set('draft', JSON.stringify(form));
+      }
+    };
+    const subscription = AppState.addEventListener(
+      'change',
+      appStateInteractor,
+    );
+    return () => {
+      subscription.remove();
+    };
+  }, [form, setForm, activeTask]);
   useEffect(() => {
     if (activeTask) {
       setForm(activeTask);
+    } else if (!activeTask) {
+      const draftJson = MMKVStorage.getString('draft');
+      if (draftJson) {
+        const draft = JSON.parse(draftJson);
+        setForm(draft);
+      }
     }
   }, [activeTask, setForm]);
   const [updateTask] = useUpdateTaskMutation();
@@ -53,9 +76,10 @@ export const EditTaskScreen: React.FC = () => {
       .then(() => {
         if (activeTask) {
           updateTask(form);
+          MMKVStorage.delete('draft');
         } else {
           addTask(form);
-          // FirestoreApi.addTask(form);
+          MMKVStorage.delete('draft');
         }
         navigation.goBack();
       })

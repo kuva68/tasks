@@ -1,0 +1,82 @@
+{
+  "project_info": {
+    "project_number": "1087265642226",
+    "project_id": "avto-helper-ua",
+    "storage_bucket": "avto-helper-ua.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1087265642226:android:0554fe5d12fbc90fcca26b",
+        "android_client_info": {
+          "package_name": "com.testlistapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1087265642226-ue1sv9c4cn6ijvt58lcvutjlgitb4jqi.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAY4XMPEyz67yVq-mfpszhgwyPomM4nog0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1087265642226-ue1sv9c4cn6ijvt58lcvutjlgitb4jqi.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "1087265642226-ca8m6hq791r4jsa36i28v2kk7m9jcjer.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "party.com"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1087265642226:android:729c6fab364b3efdcca26b",
+        "android_client_info": {
+          "package_name": "party.com"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1087265642226-ue1sv9c4cn6ijvt58lcvutjlgitb4jqi.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAY4XMPEyz67yVq-mfpszhgwyPomM4nog0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1087265642226-ue1sv9c4cn6ijvt58lcvutjlgitb4jqi.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "1087265642226-ca8m6hq791r4jsa36i28v2kk7m9jcjer.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "party.com"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -18,7 +18,7 @@ import store from '../../store/store';
 import { productsPerPage } from '../../constants';
 import { theme } from '../../theme/themes';
 import { ListEmptyComponent } from './components/emptyList';
-import { useFetchTasksQuery } from '../../store/tasks/tasksApi';
+import { useSubscribeTasksQuery } from '../../store/tasks/tasksApi';
 import dayjs from 'dayjs';
 
 const setSearchString = (searchString: string) => {
@@ -29,9 +29,7 @@ export const SearchScreen: React.FC = () => {
   const navigation = useNavigation();
   const [value, setValue] = useState('');
   const [page, setPage] = useState(1);
-  const { data: tasks = [], isLoading } = useFetchTasksQuery(undefined, {
-    refetchOnMountOrArgChange: true,
-  });
+  const { data: tasks = [], isLoading } = useSubscribeTasksQuery();
   useEffect(() => {
     searchTasksByString(value);
   }, [value]);
